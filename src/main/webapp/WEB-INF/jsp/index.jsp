@@ -17,7 +17,7 @@
         <a href="login">登录</a><br>
     </c:if>
     <c:if test="${!empty subject.principal}">
-        <span class="desc">你好，${subject.principal}，</span>
+        <span class="desc">你好啊，${subject.principal}，</span>
         <a href="doLogout">退出</a><br>
     </c:if>
     <a href="#" class="list-group-item">首页内容管理</a>
