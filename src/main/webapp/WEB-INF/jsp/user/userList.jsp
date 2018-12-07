@@ -29,13 +29,14 @@
 				    <div class="panel-heading">
 						<div class="row">
 					    	<h1 class="col-md-5">用户名单管理</h1>
-							<form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="/admin/selectStudent" id="form1" method="post">
+							<%--搜索功能未实现--%>
+							<form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="" id="form1" method="post">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="请输入姓名" name="findByName">
 									<span class="input-group-addon btn" id="sub">搜索</span>
 								</div>
 							</form>
-							<button class="btn btn-default col-md-2" style="margin-top: 20px" onClick="location.href='/admin/addStudent'">
+							<button class="btn btn-default col-md-2" style="margin-top: 20px" onClick="location.href='/user/add'">
 								添加用户信息
 								<sapn class="glyphicon glyphicon-plus"/>
 							</button>
@@ -65,8 +66,8 @@
 									<td>${item.status}</td>
 									<td><fmt:formatDate value="${item.created}" pattern="yyyy-MM-dd HH-mm-ss"/></td>
 									<td>
-										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/admin/editStudent?id=${item.id}'">修改</button>
-										<button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='/admin/removeStudent?id=${item.id}'">删除</button>
+										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/user/${item.id}/detail'">修改</button>
+										<button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='/user/${item.id}/delete'">删除</button>
 										<!--弹出框-->
 									</td>
 								</tr>

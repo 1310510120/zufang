@@ -15,7 +15,7 @@
             <!--加入导航条标题-->
             <div class="navbar navbar-default" role="navigation">
                 　<div class="navbar-header">
-                　    <a href="##" class="navbar-brand">教务信息查询系统</a>
+                　    <a href="##" class="navbar-brand">租房管理系统</a>
                 　</div>
                 <form action="##" class="navbar-form navbar-right" rol="search">
                     <div class="dropdown">
@@ -31,6 +31,7 @@
                                     修改个人信息
                                 </a>
                             </li>
+                            <%--修改个人信息也就是修改用户名密码--%>
                             <!-分割线--->
                             <li role="presentation" class="divider"></li>
                             <li role="presentation">

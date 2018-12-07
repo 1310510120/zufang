@@ -8,7 +8,7 @@
       limit #{startRow},#{PageSize}
     </select>
 
-    <select id="getUserById" parameterType="long" resultType="com.zufang.pojo.User">
+    <select id="getUserById" parameterType="Integer" resultType="com.zufang.pojo.User">
         select * from user where id = #{id};
     </select>
 

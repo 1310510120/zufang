@@ -50,10 +50,10 @@ public class UserController {
     }
 //    @RequiresRoles("productManager")
     @RequestMapping(value = "/{userId}/detail",method = RequestMethod.GET)
-    public String getUserById(Model model,@PathVariable("userId") long userId){
+    public String getUserById(Model model,@PathVariable("userId") Integer userId){
         User user = userService.getUserById(userId);
         model.addAttribute("user",user);
-        return "user-edit";
+        return "user/user-edit";
     }
 
     @RequestMapping(value = "/{userId}/edit",method = RequestMethod.POST)
@@ -63,7 +63,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/{userId}/delete")
-    public String deleteByUserId(@PathVariable("userId") long userId){
+    public String deleteByUserId(@PathVariable("userId") Integer userId){
         int result = userService.deleteUserById(userId);
 
             return "redirect:/user/list";
@@ -76,11 +76,9 @@ public class UserController {
         return "redirect:/user/list";
     }
 
-
-
     @RequestMapping(value = "/add")
     public String addUserPage(){
-        return "user-add";
+        return "user/user-add";
     }
 
 

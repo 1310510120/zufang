@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(long id) {
+    public User getUserById(Integer id) {
         User user= userMapper.getUserById(id);
         return user;
     }
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.InsertUser(user);
     }
 
-    public int deleteUserById(long userId){
+    public int deleteUserById(Integer userId){
         int result = userMapper.deleteUserById(userId);
         return result;
     }

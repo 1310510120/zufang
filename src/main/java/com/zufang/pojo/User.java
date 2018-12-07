@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class User {
 
-    private long id;
+    private Integer id;
     private String password;
     private String email;
     private String phone_number;
@@ -13,11 +13,11 @@ public class User {
     private Date created;
     private String nickname;
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,11 +53,11 @@ public class User {
         this.portrait = portrait;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -67,10 +67,6 @@ public class User {
 
     public void setCreated(Date created) {
         this.created = created;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
 
     public String getNickname() {
