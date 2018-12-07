@@ -3,7 +3,7 @@ package com.zufang.utils;
 public class PageVo {
 
     //一页多少个
-    private int pageSize = 2;
+    private int pageSize = 5;
 
     //总页数
     private int pageCount;
