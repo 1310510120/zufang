@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
 
-    public List<User> getUserList();
+    public List<User> getUserList(Integer startRow,Integer PageSize);
 
     public User getUserById(long id);
 
@@ -15,4 +15,6 @@ public interface UserService {
     public int InsertUser(User user);
 
     public int deleteUserById(long userId);
+
+    public int countUser();
 }

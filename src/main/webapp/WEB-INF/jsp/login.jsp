@@ -33,30 +33,16 @@
 				  <div class="form-group">
 				    <label class="col-sm-3 control-label">用户id</label>
 				    <div class="col-sm-9">
-				      <input type="text" class="form-control" id="userID" placeholder="请输入名字" name="username">
+				      <input type="text" class="form-control"  placeholder="请输入名字" name="name">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label class="col-sm-3 control-label">密码</label>
 				    <div class="col-sm-9">
-				      <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
+				      <input type="password" class="form-control" placeholder="请输入密码" name="password">
 				    </div>
 				  </div>
-				  <%--<div class="form-group">--%>
-				    <%--<div class="col-sm-offset-2 col-sm-10">--%>
-				      <%--<div class="checkbox">--%>
-				        <%--<label class="checkbox-inline">--%>
-							<%--<input type="radio" name="role" value="1" checked>管理员--%>
-						<%--</label>--%>
-						<%--<label class="checkbox-inline">--%>
-							<%--<input type="radio" name="role" value="2">老师--%>
-						<%--</label>--%>
-						<%--<label class="checkbox-inline">--%>
-							<%--<input type="radio" name="role" value="3">学生--%>
-						<%--</label>--%>
-				      <%--</div>--%>
-				    <%--</div>--%>
-				  <%--</div>--%>
+
 				  <div class="form-group pull-right" style="margin-right: 15px;">
 				    <div class="col-sm-offset-2 col-sm-10">
 				      <button type="submit" class="btn btn-default btn-info">登录</button>

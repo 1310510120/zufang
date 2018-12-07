@@ -16,8 +16,8 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public List<User> getUserList() {
-        List<User> list = userMapper.getUserList();
+    public List<User> getUserList(Integer startRow,Integer PageSize) {
+        List<User> list = userMapper.getUserList(startRow,PageSize);
         return list;
     }
 
@@ -41,5 +41,9 @@ public class UserServiceImpl implements UserService {
     public int deleteUserById(long userId){
         int result = userMapper.deleteUserById(userId);
         return result;
+    }
+
+    public int countUser(){
+        return userMapper.countUser();
     }
 }

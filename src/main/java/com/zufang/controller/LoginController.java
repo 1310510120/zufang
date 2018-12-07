@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * 根据用户角色，跳转到不同的页面
+ */
 @Controller
 @RequestMapping("")
 public class LoginController {
@@ -22,7 +25,14 @@ public class LoginController {
             subject.login(token);
             Session session=subject.getSession();
             session.setAttribute("subject", subject);
-            return "redirect:index";
+
+            if (subject.hasRole("admin")) {
+                return "redirect:/user/list";
+            } else if (subject.hasRole("productManager")) {
+
+                return "redirect:/house/list";
+            }
+            return "/login";
             
         } catch (AuthenticationException e) {
             model.addAttribute("error", "验证失败");  

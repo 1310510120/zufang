@@ -5,6 +5,7 @@
     <select id="getUserList" resultType="com.zufang.pojo.User">
       select *
       from  user
+      limit #{startRow},#{PageSize}
     </select>
 
     <select id="getUserById" parameterType="long" resultType="com.zufang.pojo.User">
@@ -43,6 +44,11 @@
       from  user
       where id=#{userId}
     </delete>
+
+    <select id="countUser" resultType="int">
+        select count(id)
+        from  user
+    </select>
 
 
 
