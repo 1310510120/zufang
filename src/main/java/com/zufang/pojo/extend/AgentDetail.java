@@ -1,11 +1,15 @@
-package com.zufang.pojo;
+package com.zufang.pojo.extend;
 
-public class Agent {
+public class AgentDetail {
 
     private Integer uid;
-     private String id_number;
+    private String id_number;
     private String nickname;
     private Integer status;
+    private String email;
+    private String phone_number;
+    private String portrait;
+
 
     public Integer getUid() {
         return uid;
@@ -39,13 +43,27 @@ public class Agent {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Agent{" +
-                "uid=" + uid +
-                ", id_number='" + id_number + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", status=" + status +
-                '}';
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getPortrait() {
+        return portrait;
+    }
+
+    public void setPortrait(String portrait) {
+        this.portrait = portrait;
     }
 }

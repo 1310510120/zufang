@@ -18,4 +18,5 @@ public interface UserMapper {
     public int deleteUserById(Integer userId);
 
     public int countUser();
+
 }

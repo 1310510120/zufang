@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zufang.mapper.AgentMapper">
+
+    <select id="getAgentCheck" resultType="com.zufang.pojo.Agent">
+    SELECT * from agent where status=0 limit #{startRow},#{PageSize}
+    </select>
+
+    <select id="countAgentCheck" resultType="java.lang.Integer">
+        select count(uid)
+        from  agent
+        where status='0'
+    </select>
+
+    <select id="getAgentPass" resultType="com.zufang.pojo.Agent">
+        select * from agent where status='1'limit #{startRow},#{PageSize}
+    </select>
+
+    <select id="countAgentPass" resultType="java.lang.Integer">
+        select count(uid)
+        from  agent
+        where status='1'
+    </select>
+
+    <insert id="insertAgent" parameterType="com.zufang.pojo.Agent">
+         INSERT INTO agent
+         VALUES
+    (
+        #{uid},
+        #{nickname},
+        #{id_number},
+        #{status}
+    );
+    </insert>
+
+    <delete id="deleteAgentByUid" parameterType="int">
+         DELETE
+      from  agent
+      where uid=#{uid}
+    </delete>
+
+    <update id="updateAgent" parameterType="com.zufang.pojo.Agent">
+        UPDATE agent
+        <set>
+            nickname=#{nickname},
+            id_number=#{id_number},
+            status=#{status}
+        </set>
+        WHERE uid=#{uid}
+    </update>
+
+    <select id="getAgentById" resultType="com.zufang.pojo.Agent">
+      select *
+      from  agent
+      where uid=#{uid}
+    </select>
+
+
+</mapper>

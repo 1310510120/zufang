@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%--需要一个ajax，在点击左侧菜单，左侧菜单不需要刷新--%>
 <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked" id="nav">
         <li><a href="/user/list/">用户管理<span class="badge pull-right">59</span></a></li>
@@ -10,8 +10,8 @@
             <span class="pull-right glyphicon glyphicon-chevron-toggle"></span>
         </a>
         <ul id="systemSetting1" class="nav nav-list collapse secondmenu" style="height: 0px;">
-            <li class="active"><a href="#"><i class="glyphicon glyphicon-user"></i>&nbsp;代理审核</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>&nbsp;代理列表</a></li>
+            <li class="active"><a href="/agent/checklist"><i class="glyphicon glyphicon-user"></i>&nbsp;代理审核</a></li>
+            <li><a href="/agent/passlist"><i class="glyphicon glyphicon-th-list"></i>&nbsp;代理列表</a></li>
         </ul>
         </li>
 

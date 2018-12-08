@@ -39,6 +39,17 @@ public class LoginController {
             return "login";
         }  
 	}
+
+    //登录跳转
+    @RequestMapping(value = "/login", method = {RequestMethod.GET})
+    public String loginUI() throws Exception {
+        return "login";
+    }
+
+    @RequestMapping("unauthorized")
+    public String noPerms(){
+        return "unauthorized";
+    }
 	
 
 

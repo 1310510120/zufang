@@ -22,26 +22,10 @@ public class UserController {
 //    @RequiresRoles("admin")
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String getUserList(Model model,Integer current){
-        PageVo pageVo = new PageVo();
-        //设置当前页,如过为null就设置为1
-        if(current==null || current <=0){
-            current=1;
-            pageVo.setCurrent(current);
-        }else{
-            pageVo.setCurrent(current);
-        }
-
-        //根据总行计算总页
+        //根据当前页码和总行数，可以得出总页数，起始行
         int total = userService.countUser();
-        if(total % pageVo.getPageSize()>0){
-            pageVo.setPageCount(total/pageVo.getPageSize() + 1);
-        }else{
-            pageVo.setPageCount(total/pageVo.getPageSize());
-        }
-
-        //计算起始行配合limit多少行开始取多少个
-        int startRow = (current-1)*pageVo.getPageSize();
-        List<User> list = userService.getUserList(startRow,pageVo.getPageSize());
+        PageVo pageVo = PageVo.getPageVoBy_current_total(current,total);
+        List<User> list = userService.getUserList(pageVo.getStartRow(),pageVo.getPageSize());
 
         model.addAttribute("list",list);
         model.addAttribute("pageVo",pageVo);

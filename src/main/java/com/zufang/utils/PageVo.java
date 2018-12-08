@@ -11,6 +11,8 @@ public class PageVo {
     //当前页数
     private int current;
 
+    private int startRow;
+
     public int getPageSize() {
         return pageSize;
     }
@@ -33,5 +35,35 @@ public class PageVo {
 
     public void setCurrent(int current) {
         this.current = current;
+    }
+
+    public int getStartRow() {
+        return startRow;
+    }
+
+    public void setStartRow(int startRow) {
+        this.startRow = startRow;
+    }
+
+    public static PageVo getPageVoBy_current_total(Integer currentPage, int total){
+        PageVo pageVo = new PageVo();
+        //设置起始页面
+        if(currentPage==null || currentPage <=0){
+            currentPage=1;
+            pageVo.setCurrent(currentPage);
+        }else{
+            pageVo.setCurrent(currentPage);
+        }
+        //设置总页数
+        if(total % pageVo.getPageSize()>0){
+            pageVo.setPageCount(total/pageVo.getPageSize() + 1);
+        }else{
+            pageVo.setPageCount(total/pageVo.getPageSize());
+        }
+        //设置起始行
+        pageVo.setStartRow((currentPage-1)*pageVo.getPageSize());
+
+        return pageVo;
+
     }
 }
