@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zufang.mapper.HouseMapper">
+
+    <select id="getHouseList" resultType="com.zufang.pojo.House">
+        select *
+        from house
+        where status=#{status}
+    </select>
+
+    <update id="updateHouse" parameterType="com.zufang.pojo.House">
+        UPDATE house
+        <set>
+        headline=#{headline},
+         sell_point=#{sell_point},
+         price=#{price},
+         location=#{location},
+         created=#{created},
+         area=#{area},
+         cid=#{cid},
+         storey_height=#{storey_height},
+         villageid=#{villageid},
+         subway_name=#{subway_name},
+         direction=#{direction},
+         status=#{status},
+         block_number=#{block_number},
+         unit_number=#{unit_number},
+         house_number=#{house_number},
+         aid=#{aid},
+         image_1=#{image_1},
+         image_2=#{image_2},
+         image_3=#{image_3},
+         image_4=#{image_4},
+         image_5=#{image_5}
+        </set>
+        where id=#{id}
+    </update>
+
+    <insert id="insertHouse" parameterType="com.zufang.pojo.House">
+        insert house
+        values (
+        #{id},
+        #{headline},
+        #{sell_point},
+        #{price},
+        #{location},
+        #{created},
+        #{area},
+        #{cid},
+        #{storey_height},
+        #{villageid},
+        #{subway_name},
+        #{direction},
+        #{status},
+        #{block_number},
+        #{unit_number},
+        #{house_number},
+        #{aid},
+        #{image_1},
+        #{image_2},
+        #{image_3},
+        #{image_4},
+        #{image_5}
+         )
+    </insert>
+
+    <select id="getHouseListCount" resultType="java.lang.Integer">
+        select count(id)
+        from House
+        where status=#{status}
+    </select>
+
+    <select id="getHouseById" resultType="com.zufang.pojo.House">
+        select *
+        from house
+        where id=#{id}
+    </select>
+</mapper>

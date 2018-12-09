@@ -21,8 +21,8 @@
                 <span class="pull-right glyphicon glyphicon-chevron-toggle"></span>
             </a>
             <ul id="systemSetting2" class="nav nav-list collapse secondmenu" style="height: 0px;">
-                <li class="active"><a href="#"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;出租屋审核</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>&nbsp;出租屋列表</a></li>
+                <li class="active"><a href="/house/checklist"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;出租屋审核</a></li>
+                <li><a href="/house/passlist"><i class="glyphicon glyphicon-th-list"></i>&nbsp;出租屋列表</a></li>
             </ul>
         </li>
         <li><a href="/admin/userPasswordRest">小区管理<sapn class="glyphicon pull-right" /></a></li>

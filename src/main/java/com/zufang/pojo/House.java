@@ -199,4 +199,32 @@ public class House {
     public void setImage_5(String image_5) {
         Image_5 = image_5;
     }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "id=" + id +
+                ", headline='" + headline + '\'' +
+                ", sell_point='" + sell_point + '\'' +
+                ", price='" + price + '\'' +
+                ", location='" + location + '\'' +
+                ", created='" + created + '\'' +
+                ", area='" + area + '\'' +
+                ", cid='" + cid + '\'' +
+                ", storey_height='" + storey_height + '\'' +
+                ", villageid=" + villageid +
+                ", subway_name='" + subway_name + '\'' +
+                ", direction='" + direction + '\'' +
+                ", status=" + status +
+                ", block_number='" + block_number + '\'' +
+                ", unit_number='" + unit_number + '\'' +
+                ", house_number='" + house_number + '\'' +
+                ", aid=" + aid +
+                ", image_1='" + image_1 + '\'' +
+                ", Image_2='" + Image_2 + '\'' +
+                ", Image_3='" + Image_3 + '\'' +
+                ", Image_4='" + Image_4 + '\'' +
+                ", Image_5='" + Image_5 + '\'' +
+                '}';
+    }
 }
