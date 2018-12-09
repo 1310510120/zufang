@@ -28,7 +28,7 @@
 						</div>
 				    </div>
 				    <div class="panel-body">
-						<form class="form-horizontal" role="form" action="/user/add" id="editfrom" method="post">
+						<form class="form-horizontal" role="form" action="/user/add" id="editfrom" method="post" enctype="multipart/form-data">
 							  <div class="form-group">
 							    <label for="inputEmail3" class="col-sm-2 control-label">昵称</label>
 							    <div class="col-sm-10">
@@ -56,7 +56,7 @@
 							<div class="form-group">
 								<label for="inputPassword6" class="col-sm-2 control-label">头像</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="inputPassword6" name="portrait" placeholder="请上传头像">
+									<input type="file" style="width: 100px;" class="form-control" id="inputPassword6" name="portrait" placeholder="请上传头像">
 								</div>
 							</div>
 							  <div class="form-group" style="text-align: center">
