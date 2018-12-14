@@ -54,23 +54,28 @@
 								  </div>
 							  </div>
 							<div class="form-group">
-								<label for="inputPassword6" class="col-sm-2 control-label">头像</label>
+								<label for="logoFile" class="col-sm-2 control-label">头像</label>
 								<div class="col-sm-10">
-									<input type="file" style="width: 100px;" class="form-control" id="inputPassword6" name="portrait" placeholder="请上传头像">
+										<input type="file" name="logoFile" id="logoFile" onchange="setImg(this);">
+										<span><img id="photourlShow2" src="" width="300" height="197"/></span>
 								</div>
 							</div>
+							<%--将图片地址存在这里作为表单上传--%>
+							<input type="hidden" name="portrait"  id="photoUrl" value=""/>
 							  <div class="form-group" style="text-align: center">
 								<button class="btn btn-default" type="submit">提交</button>
 								<button class="btn btn-default" type="reset">重置</button>
 							  </div>
 						</form>
 				    </div>
-				    
 				</div>
 
 			</div>
 		</div>
 	</div>
+	<%--上传头像模态框--%>
+
+
 	<div class="container" id="footer">
 	<div class="row">
 		<div class="col-md-12"></div>
@@ -79,5 +84,52 @@
 </body>
 	<script type="text/javascript">
 		$("#nav li:nth-child(2)").addClass("active")
+
+        //用于进行图片上传，返回地址
+        function setImg(obj){
+            var f=$(obj).val();
+            alert(f);
+            console.log(obj);
+            if(f == null || f ==undefined || f == ''){
+                return false;
+            }
+            if(!/\.(?:png|jpg|bmp|gif|PNG|JPG|BMP|GIF)$/.test(f))
+            {
+                alert("类型必须是图片(.png|jpg|bmp|gif|PNG|JPG|BMP|GIF)");
+                $(obj).val('');
+                return false;
+            }
+            var data = new FormData();
+            console.log(data);
+            $.each($(obj)[0].files,function(i,file){
+                data.append('file', file);
+            });
+            console.log(data);
+            $.ajax({
+                type: "POST",
+                url: "/user/upload",
+                data: data,
+                cache: false,
+                contentType: false,    //不可缺
+                processData: false,    //不可缺
+                dataType:"json",
+                success: function(ret) {
+                    console.log(ret);
+                    if(ret.code==0){
+                        $("#photoUrl").val(ret.url);//将地址存储好
+                        $("#photourlShow1").attr("src",ret.url);//显示图片
+                        $("#photourlShow2").attr("src",ret.url);//显示图片
+                    }else{
+                        alertError(ret.message);
+                        $("#url").val("");
+                        $(obj).val('');
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("上传失败，请检查网络后重试");
+                }
+            });
+        }
+
 	</script>
 </html>

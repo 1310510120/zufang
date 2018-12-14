@@ -62,7 +62,7 @@
 									<td>${item.nickname}</td>
 									<td>${item.email}</td>
 									<td>${item.phone_number}</td>
-									<td>${item.portrait}</td>
+									<td><img src="${item.portrait}" width="250" height="150" /></td>
 									<td>${item.status}</td>
 									<td><fmt:formatDate value="${item.created}" pattern="yyyy-MM-dd HH-mm-ss"/></td>
 									<td>

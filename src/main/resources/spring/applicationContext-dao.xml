@@ -14,7 +14,7 @@
 
     <context:component-scan base-package="com.zufang.mapper"/>
     <!-- 指明配置文件存放位置 -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:*.properties"/>
 
 
     <!-- druid  -->
