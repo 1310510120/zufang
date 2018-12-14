@@ -76,14 +76,13 @@ public class UserController {
     @ResponseBody
     public Map<String,Object> addUser(MultipartFile file){
         Map<String,Object> result = new HashMap<String,Object>();
-        Integer code=0;
         try {
             String url = pictureService.uploadPicture(file);
-            code=1;
             result.put("url",url);
             result.put("code",0);
         } catch (Exception e) {
             e.printStackTrace();
+            result.put("code",1);
             result.put("message","上传失败请联系管理员");
         }
         return result;
