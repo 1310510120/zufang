@@ -6,6 +6,7 @@ public class House {
     private String sell_point;
     private String price;
     private String location;
+    private String cityid;
     private String created;
     private String area;
     private String cid;
@@ -23,6 +24,7 @@ public class House {
     private String Image_3;
     private String Image_4;
     private String Image_5;
+    private String rent_way;
 
     public long getId() {
         return id;
@@ -198,6 +200,22 @@ public class House {
 
     public void setImage_5(String image_5) {
         Image_5 = image_5;
+    }
+
+    public String getCityid() {
+        return cityid;
+    }
+
+    public void setCityid(String cityid) {
+        this.cityid = cityid;
+    }
+
+    public String getRent_way() {
+        return rent_way;
+    }
+
+    public void setRent_way(String rent_way) {
+        this.rent_way = rent_way;
     }
 
     @Override
