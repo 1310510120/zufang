@@ -6,12 +6,11 @@ public class House {
     private String sell_point;
     private String price;
     private String location;
-    private String cityid;
     private String created;
     private String area;
     private String cid;
     private String storey_height;
-    private Integer villageid;
+    private Integer village_name;
     private String subway_name;
     private String direction;
     private Integer status;
@@ -98,12 +97,12 @@ public class House {
         this.storey_height = storey_height;
     }
 
-    public Integer getVillageid() {
-        return villageid;
+    public Integer getVillage_name() {
+        return village_name;
     }
 
-    public void setVillageid(Integer villageid) {
-        this.villageid = villageid;
+    public void setVillage_name(Integer village_name) {
+        this.village_name = village_name;
     }
 
     public String getSubway_name() {
@@ -202,14 +201,6 @@ public class House {
         Image_5 = image_5;
     }
 
-    public String getCityid() {
-        return cityid;
-    }
-
-    public void setCityid(String cityid) {
-        this.cityid = cityid;
-    }
-
     public String getRent_way() {
         return rent_way;
     }
@@ -218,31 +209,5 @@ public class House {
         this.rent_way = rent_way;
     }
 
-    @Override
-    public String toString() {
-        return "House{" +
-                "id=" + id +
-                ", headline='" + headline + '\'' +
-                ", sell_point='" + sell_point + '\'' +
-                ", price='" + price + '\'' +
-                ", location='" + location + '\'' +
-                ", created='" + created + '\'' +
-                ", area='" + area + '\'' +
-                ", cid='" + cid + '\'' +
-                ", storey_height='" + storey_height + '\'' +
-                ", villageid=" + villageid +
-                ", subway_name='" + subway_name + '\'' +
-                ", direction='" + direction + '\'' +
-                ", status=" + status +
-                ", block_number='" + block_number + '\'' +
-                ", unit_number='" + unit_number + '\'' +
-                ", house_number='" + house_number + '\'' +
-                ", aid=" + aid +
-                ", image_1='" + image_1 + '\'' +
-                ", Image_2='" + Image_2 + '\'' +
-                ", Image_3='" + Image_3 + '\'' +
-                ", Image_4='" + Image_4 + '\'' +
-                ", Image_5='" + Image_5 + '\'' +
-                '}';
-    }
 }
+
