@@ -14,27 +14,72 @@
     <update id="updateHouse" parameterType="com.zufang.pojo.House">
         UPDATE house
         <set>
-        headline=#{headline},
-         sell_point=#{sell_point},
-         price=#{price},
-         location=#{location},
-         created=#{created},
-         area=#{area},
-         cid=#{cid},
-         storey_height=#{storey_height},
-         villageid=#{villageid},
-         subway_name=#{subway_name},
-         direction=#{direction},
-         status=#{status},
-         block_number=#{block_number},
-         unit_number=#{unit_number},
-         house_number=#{house_number},
-         aid=#{aid},
-         image_1=#{image_1},
-         image_2=#{image_2},
-         image_3=#{image_3},
-         image_4=#{image_4},
-         image_5=#{image_5}
+            <if test="headline !=null">
+                headline=#{headline},
+            </if>
+            <if test="sell_point !=null">
+                sell_point=#{sell_point},
+            </if>
+            <if test="price !=null">
+                price=#{price},
+            </if>
+            <if test="location !=null">
+                location=#{location},
+            </if>
+            <if test="created !=null">
+                created=#{created},
+            </if>
+            <if test="area !=null">
+                area=#{area},
+            </if>
+            <if test="location !=null">
+                cid=#{cid},
+            </if>
+            <if test="storey_height !=null">
+                storey_height=#{storey_height},
+            </if>
+            <if test="village_name !=null">
+                village_name=#{village_name},
+            </if>
+            <if test="location !=null">
+                subway_name=#{subway_name},
+            </if>
+            <if test="direction !=null">
+                direction=#{direction},
+            </if>
+            <if test="status !=null">
+                status=#{status},
+            </if>
+            <if test="block_number !=null">
+                block_number=#{block_number},
+            </if>
+            <if test="unit_number !=null">
+                unit_number=#{unit_number},
+            </if>
+            <if test="house_number !=null">
+                house_number=#{house_number},
+            </if>
+            <if test="aid !=null">
+                aid=#{aid},
+            </if>
+            <if test="image_1 !=null">
+                image_1=#{image_1},
+            </if>
+            <if test="image_2 !=null">
+                image_2=#{image_2},
+            </if>
+            <if test="image_3 !=null">
+                image_3=#{image_3},
+            </if>
+            <if test="image_4 !=null">
+                image_4=#{image_4},
+            </if>
+            <if test="image_5 !=null">
+                image_5=#{image_5},
+            </if>
+            <if test="rent_way !=null">
+                rent_way=#{rent_way}
+            </if>
         </set>
         where id=#{id}
     </update>

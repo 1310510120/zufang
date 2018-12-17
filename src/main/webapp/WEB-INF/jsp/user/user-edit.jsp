@@ -28,7 +28,10 @@
 						</div>
 				    </div>
 				    <div class="panel-body">
-						<form class="form-horizontal" role="form" action="/user/edit" id="editfrom" method="post">
+						<form class="form-horizontal" role="form" action="/user/update" id="editfrom" method="post">
+							<div class="form-group">
+								<input type="hidden" id="inputid" class="form-control" name="id" value="${user.id}">
+							</div>
 							  <div class="form-group">
 							    <label for="inputEmail3" class="col-sm-2 control-label">昵称</label>
 							    <div class="col-sm-10">

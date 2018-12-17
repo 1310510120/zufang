@@ -66,7 +66,7 @@
 									<td>${item.status}</td>
 									<td><fmt:formatDate value="${item.created}" pattern="yyyy-MM-dd HH-mm-ss"/></td>
 									<td>
-										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/user/${item.id}/detail'">修改</button>
+										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/user/${item.id}/edit'">修改</button>
 										<button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='/user/${item.id}/delete'">删除</button>
 										<!--弹出框-->
 									</td>

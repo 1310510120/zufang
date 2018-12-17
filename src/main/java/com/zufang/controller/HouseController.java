@@ -43,7 +43,7 @@ public class HouseController {
         House house = houseService.getHouseById(id);
         house.setStatus(1);
         houseService.updateHouse(house);
-        return "house/house-list";
+        return "redirect:passlist";
     }
 
     @RequestMapping("{id}/rejectpass")
@@ -51,7 +51,19 @@ public class HouseController {
         House house = houseService.getHouseById(id);
         house.setStatus(-1);
         houseService.updateHouse(house);
-        return "house/house-list";
+        return "redirect:checklist";
     }
 
+    @RequestMapping("/update")
+    public String updateHosue(House house){
+        houseService.updateHouse(house);
+        return "redirect:passlist";
+    }
+
+    @RequestMapping("{id}/edit")
+    public String detailHouse(@PathVariable("id") Integer id,Model model){
+        House house = houseService.getHouseById(id);
+        model.addAttribute("house",house);
+        return "house/house-edit";
+    }
 }

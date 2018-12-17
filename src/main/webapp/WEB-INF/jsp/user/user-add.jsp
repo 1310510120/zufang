@@ -57,6 +57,7 @@
 								<label for="logoFile" class="col-sm-2 control-label">头像</label>
 								<div class="col-sm-10">
 										<input type="file" name="logoFile" id="logoFile" onchange="setImg(this);">
+										<%--显示图片--%>
 										<span><img id="photourlShow2" src="" width="300" height="197"/></span>
 								</div>
 							</div>
@@ -107,7 +108,7 @@
             console.log(data);
             $.ajax({
                 type: "POST",
-                url: "/user/upload",
+                url: "/picture/upload",
                 data: data,
                 cache: false,
                 contentType: false,    //不可缺
@@ -117,7 +118,6 @@
                     console.log(ret);
                     if(ret.code==0){
                         $("#photoUrl").val(ret.url);//将地址存储好
-                        $("#photourlShow1").attr("src",ret.url);//显示图片
                         $("#photourlShow2").attr("src",ret.url);//显示图片
                     }else{
                         alertError(ret.message);

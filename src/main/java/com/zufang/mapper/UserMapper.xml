@@ -19,7 +19,9 @@
             email=#{email},
             phone_number=#{phone_number},
             portrait=#{portrait},
+            <if test="status !=null">
             status=#{status}
+            </if>
         </set>
         WHERE id=#{id}
     </update>

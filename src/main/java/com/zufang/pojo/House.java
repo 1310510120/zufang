@@ -10,7 +10,7 @@ public class House {
     private String area;
     private String cid;
     private String storey_height;
-    private Integer village_name;
+    private String village_name;
     private String subway_name;
     private String direction;
     private Integer status;
@@ -97,11 +97,11 @@ public class House {
         this.storey_height = storey_height;
     }
 
-    public Integer getVillage_name() {
+    public String getVillage_name() {
         return village_name;
     }
 
-    public void setVillage_name(Integer village_name) {
+    public void setVillage_name(String village_name) {
         this.village_name = village_name;
     }
 

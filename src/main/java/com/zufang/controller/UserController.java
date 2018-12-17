@@ -27,8 +27,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private PictureService pictureService;
 
 //    @RequiresRoles("admin")
     @RequestMapping(value = "/list",method = RequestMethod.GET)
@@ -44,14 +42,14 @@ public class UserController {
         return "user/userList";
     }
 //    @RequiresRoles("productManager")
-    @RequestMapping(value = "/{userId}/detail",method = RequestMethod.GET)
+    @RequestMapping(value = "/{userId}/edit",method = RequestMethod.GET)
     public String getUserById(Model model,@PathVariable("userId") Integer userId){
         User user = userService.getUserById(userId);
         model.addAttribute("user",user);
         return "user/user-edit";
     }
 
-    @RequestMapping(value = "/{userId}/edit",method = RequestMethod.POST)
+    @RequestMapping(value = "/update",method = RequestMethod.POST)
     public String UpdateUserByUser(User user){
         userService.UpdateUserByUser(user);
         return "redirect:/user/list";
@@ -69,23 +67,6 @@ public class UserController {
     public String addUser(User user){
         int count = userService.InsertUser(user);
         return "redirect:/user/list";
-
-    }
-
-    @RequestMapping(value = "/upload",method = RequestMethod.POST)
-    @ResponseBody
-    public Map<String,Object> addUser(MultipartFile file){
-        Map<String,Object> result = new HashMap<String,Object>();
-        try {
-            String url = pictureService.uploadPicture(file);
-            result.put("url",url);
-            result.put("code",0);
-        } catch (Exception e) {
-            e.printStackTrace();
-            result.put("code",1);
-            result.put("message","上传失败请联系管理员");
-        }
-        return result;
 
     }
 

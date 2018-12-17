@@ -63,6 +63,7 @@
 						<th>图片3</th>
 						<th>图片4</th>
 						<th>图片5</th>
+						<th>出租方式</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -77,7 +78,7 @@
 							<td>${item.area}</td>
 							<td>${item.cid}</td>
 							<td>${item.storey_height}</td>
-							<td>${item.villageid}</td>
+							<td>${item.village_name}</td>
 							<td>${item.subway_name}</td>
 							<td>${item.direction}</td>
 							<td>${item.block_number}</td>
@@ -89,6 +90,7 @@
 							<td>${item.image_3}</td>
 							<td>${item.image_4}</td>
 							<td>${item.image_5}</td>
+							<td>${item.rent_way}</td>
 							<td>
 								<button class="btn btn-default btn-xs btn-info" onClick="location.href='/house/${item.id}/pass'">通过</button>
 								<button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='/house/${item.id}/rejectpass'">拒绝</button>
