@@ -96,27 +96,27 @@
 						<c:if test="${pageVo.pageCount != null}">
 							<nav style="text-align: center">
 								<ul class="pagination">
-									<li><a href="/agent/passlist?current=${pageVo.current-1}">上一页</a></li>
+									<li><a href="/house/passlist?current=${pageVo.current-1}">上一页</a></li>
 									<c:if test="${pageVo.current-2 >= 1}">
-										<li><a href="/agent/passlist?current=${pageVo.current-2}">${pageVo.current-2}</a></li>
+										<li><a href="/house/passlist?current=${pageVo.current-2}">${pageVo.current-2}</a></li>
 									</c:if>
 									<c:if test="${pageVo.current-1 >= 1}">
-										<li><a href="/agent/passlist?current=${pageVo.current-1}">${pageVo.current-1}</a></li>
+										<li><a href="/house/passlist?current=${pageVo.current-1}">${pageVo.current-1}</a></li>
 									</c:if>
 									<li class="active"><a href="">${pageVo.current}</a></li>
 									<c:if test="${pageVo.current+1 <= pageVo.pageCount}">
-										<li><a href="/agent/passlist?current=${pageVo.current+1}">${pageVo.current+1}</a></li>
+										<li><a href="/house/passlist?current=${pageVo.current+1}">${pageVo.current+1}</a></li>
 									</c:if>
 									<c:if test="${pageVo.current+2 <= pageVo.pageCount}">
-										<li><a href="/agent/passlist?current=${pageVo.current+2}">${pageVo.current+2}</a></li>
+										<li><a href="/house/passlist?current=${pageVo.current+2}">${pageVo.current+2}</a></li>
 									</c:if>
 									<c:if test="${pageVo.current+3 <= pageVo.pageCount}">
-										<li><a href="/agent/passlist?current=${pageVo.current+3}">${pageVo.current+3}</a></li>
+										<li><a href="/house/passlist?current=${pageVo.current+3}">${pageVo.current+3}</a></li>
 									</c:if>
 									<c:if test="${pageVo.current+4 <= pageVo.pageCount}">
-										<li><a href="/agent/passlistlist?current=${pageVo.current+4}">${pageVo.current+4}</a></li>
+										<li><a href="/house/passlist?current=${pageVo.current+4}">${pageVo.current+4}</a></li>
 									</c:if>
-									<li><a href="/agent/passlistlist?current=${pageVo.current+1}">下一页</a></li>
+									<li><a href="/house/passlist?current=${pageVo.current+1}">下一页</a></li>
 								</ul>
 							</nav>
 						</c:if>

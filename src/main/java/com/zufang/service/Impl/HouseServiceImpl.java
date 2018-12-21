@@ -14,8 +14,8 @@ public class HouseServiceImpl implements HouseService {
     private HouseMapper houseMapper;
 
     @Override
-    public List<House> getHouseList(int status) {
-        List<House> list = houseMapper.getHouseList(status);
+    public List<House> getHouseList(int status,int startRows,int PageSize) {
+        List<House> list = houseMapper.getHouseList(status,startRows,PageSize);
         return list;
     }
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zufang.mapper.ContentMapper">
+    <select id="getallContent" resultType="com.zufang.pojo.extend.Content_extend">
+      SELECT c.id,cc.content_cat,c.headline,c.price,c.small_pic,c.big_pic,c.house_id
+      from content c LEFT JOIN content_cat cc on c.cid=cc.id
+    </select>
+
+    <select id="getContentByHouseId" resultType="com.zufang.pojo.extend.Content_extend">
+        SELECT c.id,cc.content_cat,c.headline,c.price,c.small_pic,c.big_pic,c.house_id
+        from content c LEFT JOIN content_cat cc on c.cid=cc.id where c.house_id=#{houseId}
+    </select>
+
+    <update id="updateContent" parameterType="com.zufang.pojo.extend.Content_extend">
+        UPDATE content
+        <set>
+            <if test="headline !=null">
+            headline=#{headline},
+            </if>
+            <if test="price !=null">
+            price=#{price},
+            </if>
+            <if test="content_cat !=null">
+	        cid=(SELECT a.id from content_cat a where a.content_cat=#{content_cat}),
+            </if>
+            <if test="small_pic !=null">
+	        small_pic=#{small_pic},
+            </if>
+            <if test="big_pic !=null">
+	        big_pic=#{big_pic},
+            </if>
+            <if test="house_id !=null">
+            house_id=#{house_id}
+            </if>
+        </set>
+        where id =#{id}
+    </update>
+
+    <delete id="deleteContentById">
+        DELETE from content where house_id =#{house_id}
+    </delete>
+
+    <select id="count_content_cat" resultType="com.zufang.pojo.extend.Content_Cat_Count">
+        SELECT count(c.id) as content_cat_count,
+        cc.content_cat as content_cat
+        from content c LEFT JOIN content_cat cc on c.cid=cc.id
+        GROUP BY c.cid
+    </select>
+
+    <select id="getHouseContent" resultType="com.zufang.pojo.extend.House_extend">
+           select house.*,a.content_cat
+        from house LEFT JOIN
+        (SELECT cc.content_cat,c.house_id from content c LEFT JOIN content_cat cc on c.cid=cc.id) a
+         on a.house_id=house.id
+        where status='1'
+		limit #{startRow},#{PageSize}
+    </select>
+    
+    <insert id="insertContent" parameterType="com.zufang.pojo.extend.Content_extend">
+            INSERT into content
+            VALUE(
+            null,
+            (SELECT a.id from content_cat a where a.content_cat=#{content_cat}),
+            #{small_pic},
+            #{big_pic},
+            #{headline},
+            #{price},
+            #{house_id}
+            )
+    </insert>
+</mapper>

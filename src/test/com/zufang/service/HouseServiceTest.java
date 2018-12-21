@@ -21,7 +21,7 @@ public class HouseServiceTest {
     House house = new House();
     @Test
     public void getHouseList() {
-        List<House> list = houseService.getHouseList(0);
+        List<House> list = houseService.getHouseList(0,0,5);
         for(House house:list){
             System.out.println(house.toString());
         }

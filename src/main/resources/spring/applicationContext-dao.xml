@@ -14,7 +14,8 @@
 
     <context:component-scan base-package="com.zufang.mapper"/>
     <!-- 指明配置文件存放位置 -->
-    <context:property-placeholder location="classpath:*.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath:resource.properties" ignore-unresolvable="true"/>
 
 
     <!-- druid  -->

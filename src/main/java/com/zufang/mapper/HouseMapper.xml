@@ -9,6 +9,7 @@
         select *
         from house
         where status=#{status}
+        limit #{startRows},#{PageSize}
     </select>
 
     <update id="updateHouse" parameterType="com.zufang.pojo.House">

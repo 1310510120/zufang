@@ -20,9 +20,9 @@ public class HouseController {
 
     @RequestMapping("passlist")
     public String getHousePassList(Model model,Integer current){
-        List<House> list = houseService.getHouseList(1);
         int total = houseService.getHouseListCount(1);
         PageVo pageVo = PageVo.getPageVoBy_current_total(current,total);
+        List<House> list = houseService.getHouseList(1,pageVo.getStartRow(),pageVo.getPageSize());
         model.addAttribute("list",list);
         model.addAttribute("pageVo",pageVo);
         return "house/house-list";
@@ -30,9 +30,9 @@ public class HouseController {
 
     @RequestMapping("checklist")
     public String getHouseCheckList(Model model,Integer current){
-        List<House> list = houseService.getHouseList(0);
         int total = houseService.getHouseListCount(0);
         PageVo pageVo = PageVo.getPageVoBy_current_total(current,total);
+        List<House> list = houseService.getHouseList(0,pageVo.getStartRow(),pageVo.getPageSize());
         model.addAttribute("list",list);
         model.addAttribute("pageVo",pageVo);
         return "house/house-checklist";
