@@ -46,6 +46,10 @@ public class LoginController {
         return "login";
     }
 
+    /**
+     * 权限不够页面
+     * @return
+     */
     @RequestMapping("unauthorized")
     public String noPerms(){
         return "unauthorized";

@@ -28,8 +28,11 @@ public class ContentController {
     @Autowired
     private HouseService houseService;
 
-    /*
-    获取房屋维护列表
+    /**
+     *  获取房屋维护列表
+     * @param model
+     * @param current 当前页码
+     * @return
      */
     @RequestMapping("/houseContent")
     public String gethouseContent(Model model, Integer current){
@@ -43,8 +46,12 @@ public class ContentController {
         return "content/house-content";
     }
 
-     //在房屋维护列表点击推送到首页
-     //弹出模态框，将广告信息填充，如果是旧广告则可以更换，如果是新广告则可以新增
+    /**
+     * 在房屋维护列表点击推送到首页事件
+     * 弹出模态框，将广告信息填充，如果是旧广告则可以更换，如果是新广告则可以新增
+     * @param houseId
+     * @return
+     */
     @RequestMapping("/houseContent/{houseId}")
     @ResponseBody
     public Map<String,Object> getContentByHouseId(@PathVariable("houseId")Integer houseId){
@@ -77,7 +84,11 @@ public class ContentController {
         return result;
     }
 
-    //模态框确定按钮，更换或新增广告
+    /**
+     * 模态框中确定更新广告信息按钮，
+     * @param content_extend
+     * @return
+     */
     @RequestMapping(value = "/UpdateContent" ,method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> addOrUpdateContent(Content_extend content_extend){
@@ -97,13 +108,22 @@ public class ContentController {
         return result;
     }
 
-    //取消推送
+    /**
+     * 取消推送
+     * @param houseId
+     * @return
+     */
     @RequestMapping("/deleteContent/{houseId}")
     public String deleteContent(@PathVariable("houseId")Integer houseId){
         contentService.deleteContentById(houseId);
         return "redirect:/content/houseContent";
     }
 
+    /**
+     * 展示广告内容列表
+     * @param model
+     * @return
+     */
     @RequestMapping("/getallContent")
     public String getallContent(Model model){
         List<Content_extend> list =  contentService.getallContent();

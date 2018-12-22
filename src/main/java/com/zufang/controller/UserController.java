@@ -28,6 +28,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 用户列表，@RequiresRoles("admin")代表只有管理员角色才能进入
+     * @param model
+     * @param current
+     * @return
+     */
 //    @RequiresRoles("admin")
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String getUserList(Model model,Integer current){
@@ -41,6 +47,13 @@ public class UserController {
 
         return "user/userList";
     }
+
+    /**
+     * 点击编辑返回用户编辑页面
+     * @param model
+     * @param userId
+     * @return
+     */
 //    @RequiresRoles("productManager")
     @RequestMapping(value = "/{userId}/edit",method = RequestMethod.GET)
     public String getUserById(Model model,@PathVariable("userId") Integer userId){
@@ -49,12 +62,22 @@ public class UserController {
         return "user/user-edit";
     }
 
+    /**
+     * 更新用户表
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public String UpdateUserByUser(User user){
         userService.UpdateUserByUser(user);
         return "redirect:/user/list";
     }
 
+    /**
+     * 删除用户id
+     * @param userId
+     * @return
+     */
     @RequestMapping(value = "/{userId}/delete")
     public String deleteByUserId(@PathVariable("userId") Integer userId){
         int result = userService.deleteUserById(userId);
@@ -62,7 +85,11 @@ public class UserController {
             return "redirect:/user/list";
 
     }
-
+    /**
+     * 增加用户
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String addUser(User user){
         int count = userService.InsertUser(user);
@@ -70,6 +97,10 @@ public class UserController {
 
     }
 
+    /**
+     * 跳转到增加用户页面
+     * @return
+     */
     @RequestMapping(value = "/add")
     public String addUserPage(){
         return "user/user-add";

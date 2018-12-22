@@ -18,9 +18,14 @@ public class PictureController {
     @Autowired
     private PictureService pictureService;
 
+    /**
+     * 上传图片方法，
+     * @param file
+     * @return 返回一个地址和一个状态码，0表示成功，1表示失败
+     */
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> addUser(MultipartFile file){
+    public Map<String,Object> uploadPicture(MultipartFile file){
         Map<String,Object> result = new HashMap<String,Object>();
         try {
             String url = pictureService.uploadPicture(file);

@@ -26,6 +26,11 @@ public class AgentController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 添加代理
+     * @param agent 代理pojo
+     * @return 代理列表
+     */
     @RequestMapping("/add")
     public String addAgent(Agent agent){
         int result = agentService.insertAgent(agent);
@@ -35,6 +40,12 @@ public class AgentController {
         return "error";
     }
 
+    /**
+     * 展示代理审核列表
+     * @param model
+     * @param current 当前页码
+     * @return 代理审核列表页面
+     */
     @RequestMapping("/checklist")
     public String getAgentCheck(Model model,Integer current){
         //分页
@@ -50,6 +61,12 @@ public class AgentController {
     }
 
 
+    /**
+     * 展示代理通过列表
+     * @param model
+     * @param current 当前页码
+     * @return
+     */
     @RequestMapping("/passlist")
     public String getAgentPassList(Model model,Integer current){
         //分页
@@ -65,6 +82,13 @@ public class AgentController {
         return "agent/agent-list";
     }
 
+    /**
+     * 审核通过
+     * @param model
+     * @param uid 代理的id也是用户id
+     * @return
+     */
+
     @RequestMapping("{uid}/pass")
     public String agentPass(Model model, @PathVariable("uid") Integer uid) {
         int result = agentService.updateAgentById(uid,1);
@@ -73,6 +97,13 @@ public class AgentController {
         }
         return "error";
     }
+
+    /**
+     * 拒绝通过
+     * @param model
+     * @param uid 代理的id也是用户id
+     * @return
+     */
     @RequestMapping("{uid}/rejectpass")
     public String agentReject(Model model, @PathVariable("uid") Integer uid) {
         int result = agentService.updateAgentById(uid,-1);
@@ -81,6 +112,13 @@ public class AgentController {
         }
         return "error";
     }
+
+    /**
+     * 编辑代理
+     * @param model
+     * @param agent 代理pojo
+     * @return
+     */
     @RequestMapping(value ="/edit",method = RequestMethod.POST)
     public String agentUpdate(Model model,Agent agent){
         int result = agentService.updateAgent(agent);
@@ -89,6 +127,14 @@ public class AgentController {
         }
         return "error";
     }
+
+    /**
+     * 代理详细信息页面
+     * @param model
+     * @param uid
+     * @return
+     */
+
     @RequestMapping(value ="{uid}/detail",method = RequestMethod.GET)
     public String getUserById(Model model,@PathVariable("uid") Integer uid){
         Agent agent = agentService.getAgentById(uid);
@@ -96,7 +142,11 @@ public class AgentController {
         return "agent/agent-edit";
     }
 
-
+    /**
+     * 代理表信息和用户表信息整合
+     * @param agentlist
+     * @return
+     */
     //传入（通过审核，正在审核中）代理，封装成一个pojo
     public List<AgentDetail> intergration(List<Agent> agentlist){
         List<AgentDetail> list = new ArrayList<AgentDetail>();
