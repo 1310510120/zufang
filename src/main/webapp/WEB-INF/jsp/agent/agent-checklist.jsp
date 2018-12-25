@@ -60,7 +60,7 @@
 									<td>${item.id_number}</td>
 									<td>
 										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/agent/${item.uid}/pass'">通过</button>
-										<button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='/agent/${item.uid}/pass'">拒绝</button>
+										<button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='/agent/${item.uid}/rejectpass'">拒绝</button>
 										<!--弹出框-->
 									</td>
 								</tr>
