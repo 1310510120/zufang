@@ -93,7 +93,9 @@ public class AgentController {
     public String agentPass(Model model, @PathVariable("uid") Integer uid) {
         int result = agentService.updateAgentById(uid,1);
         if(result >0){
-            return "forward:/agent/checklist";
+//            return "forward:/agent/checklist";
+            return "redirect:/agent/checklist";
+
         }
         return "error";
     }
@@ -108,7 +110,7 @@ public class AgentController {
     public String agentReject(Model model, @PathVariable("uid") Integer uid) {
         int result = agentService.updateAgentById(uid,-1);
         if(result >0){
-            return "agent/agent-list";
+            return "redirect:/agent/checklist";
         }
         return "error";
     }
