@@ -94,8 +94,8 @@ public class AgentController {
         int result = agentService.updateAgentById(uid,1);
         if(result >0){
 //            return "forward:/agent/checklist";
-            return "redirect:/agent/checklist";
-
+//            return "redirect:/agent/checklist";
+            return "forward:/agent/checklist";
         }
         return "error";
     }
